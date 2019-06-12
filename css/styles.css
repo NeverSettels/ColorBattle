@@ -1,0 +1,13 @@
+div{
+    margin-top: 100px;
+    width: 100vw;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
+}
+#canvas{
+    
+    border: none;
+}
