@@ -18,16 +18,26 @@ let j = 0;
 
         setTimeout(function () {    
             ctx.fillStyle =`${getRandomColor()}`
-            ctx.fillRect(i,j, 10, 10)          
-           i+=10;                     
+            ctx.fillRect(i,j, 20, 20)          
+           i+=20;                     
            if (i < 400) {            
               fillerLoop();             
            }  
             else if (j < 400){ 
                 fillerLoop()
                  i = 0
-                 j+=10
+                 j+=20
                 }                    
         }, 1)
-     }
+    }
+   
      fillerLoop()
+     function titleAppear(){     
+        ctx.globalCompositeOperation = "destination-over";
+        ctx.fillStyle = "white";
+        ctx.font = "30px Arial";
+        ctx.fillText("ColorBattle", 200, 200); 
+    }
+
+    setTimeout(titleAppear(), 50000)
+     
