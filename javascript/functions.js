@@ -1,6 +1,3 @@
-let canvas = document.querySelector("#canvas")
-let ctx = canvas.getContext('2d');
-
 function getRandomColor() {
     var letters = '0123456789ABCDEF';
     var color = '#';
@@ -12,10 +9,10 @@ function getRandomColor() {
   
 
     
-let i = 0;  
-let j = 0;
+  let i = 0;  
+  let j = 0;
     function fillerLoop () {  
-
+      
         setTimeout(function () {    
             ctx.fillStyle =`${getRandomColor()}`
             ctx.fillRect(i,j, 20, 20)          
@@ -30,14 +27,10 @@ let j = 0;
                 }                    
         }, 1)
     }
-   
-     fillerLoop()
-     function titleAppear(){     
-        ctx.globalCompositeOperation = "destination-over";
-        ctx.fillStyle = "white";
-        ctx.font = "30px Arial";
-        ctx.fillText("ColorBattle", 200, 200); 
-    }
-
-    setTimeout(titleAppear(), 50000)
-     
+function titleAppear(){     
+      ctx.globalCompositeOperation = "destination-over";
+      ctx.fillStyle = "white";
+      ctx.font = "50px KulminoituvaRegular ";
+      ctx.textBaseline = 'bottom'
+      ctx.fillText("ColorBattle", 20, 200); 
+  }
