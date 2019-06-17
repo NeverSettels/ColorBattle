@@ -1,11 +1,11 @@
-mapLarge.drawBasic()
+    mapLarge.drawBasic()
 
-console.log(mapLarge.basicMap())
-
+mapLarge.basicMap()
 
 
 
 addEventListener('keydown', (e) => {
+    e.preventDefault()
     if(e.keyCode === 32) {
      startGame()
    } else if(e.keyCode === 38) {
@@ -31,5 +31,7 @@ addEventListener('keydown', (e) => {
           }
     else if(e.keyCode === 65) {
         player2.moveleft()
-        }             
+        } 
+             
  })
+

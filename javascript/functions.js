@@ -36,12 +36,57 @@ function titleAppear(){
   }
 
   function update(){
+    frames++
     player1.draw()
     player2.draw()
+    printSeconds()
+    battle.playbackRate = `${playBack += .0005}`
   }
 
   function startGame() {
     if (interval) return
     interval = setInterval(update, 1000/120)
+    battle.play()
+    setTimeout(gameOver, 15000 )
   }
-;
+
+  function gameOver() {
+    battle.pause()
+    finish.play()
+    clearInterval(interval)
+    interval = false
+    determineWinner(mapLarge.arrOutter)
+    ctx.fillStyle = `black`
+    ctx.font = "20px 'Press Start 2P'";
+    ctx.fillText(`${determineWinner(mapLarge.arrOutter)}`, mapLarge.blockSize, canvas.height/2);
+  }
+
+  function determineWinner(arr){
+      let p1Score = 0;
+      let p2Score = 0;
+    for(let i = 0; i < arr.length; i++){
+        for(let j = 0; j < arr.length; j++){
+        if(arr[i][j] === `p1`) p1Score++
+        else if (arr[i][j] === `p2`) p2Score++  
+        }  
+    }
+    if(  p1Score > p2Score  ){
+        return `Player 1 Wins!!!`
+    }
+    else if(  p1Score < p2Score  ){
+         return`Player 2 Wins!!!`
+    }
+    else {
+        return`It's a Tie!!!!!!`
+    }
+  }
+
+  function printSeconds() {
+    sec.innerText = 15 - Math.floor(getSeconds())
+    
+}
+
+
+  function getSeconds(){ return (frames/120)%60}
+
+

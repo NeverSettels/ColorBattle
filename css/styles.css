@@ -1,15 +1,24 @@
+@font-face {
+    font-family: 'Press Start 2P';
+    src: url('../PressStart2P-Regular.ttf');
+}
 div{
-    margin-top: 100px;
     width: 100vw;
-    height: 400px;
     display: flex;
     justify-content: center;
     align-content: center;
 
 }
 #canvas{
-    
     border: none;
+    font-family: 'Press Start 2P';
+}
+.timer{    
+    margin: 0;
+    height: 60px;
+    padding: 10px;
+    font-size: 50px;
+    font-family: 'Press Start 2P';
 }
 
  

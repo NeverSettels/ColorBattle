@@ -1,3 +1,7 @@
+ window.on
+
+ 
+ 
  class MapGenerator{
     constructor(x){
         this.arrOutter = []
@@ -42,33 +46,52 @@
 
 
 class PlayerBlock{
-    constructor (color, initialX ,initialY,board){
+    constructor (color, initialX , initialY , initialArrY, initialArrX, board, val){
         this.x = initialX
         this.y = initialY
+        this.i = initialArrY
+        this.j = initialArrX
+        this.val = val
         this.board = board
         this.blockSize = canvas.width/board.numAccross
         this.color = color
     }
     moveUp(){
-        if (this.y > 0 ) this.y -= this.blockSize
+        if (this.y > 0 ) {
+            this.y -= this.blockSize
+            this.i--
+            this.board.arrOutter[this.i][this.j] = this.val
+            
+        }
     }
     moveDown(){
-        if (this.y < canvas.height - this.blockSize ) this.y += this.blockSize
+        if (this.y < canvas.height - this.blockSize ) {
+            this.y += this.blockSize
+            this.i++
+            this.board.arrOutter[this.i][this.j] = this.val
+            
+        }
     }
     moveRight(){
         if(this.x < canvas.width- this.blockSize){
             this.x += this.blockSize
+            this.j++
+            this.board.arrOutter[this.i][this.j] = this.val
+            
         }
     
     }
     moveleft(){
         if(this.x > 0){
             this.x -= this.blockSize
+            this.j--
+            this.board.arrOutter[this.i][this.j] = this.val
         }
     
     }
     draw(){
         ctx.fillStyle = this.color
-        ctx.fillRect(this.x, this.y, this.blockSize, this.blockSize)
+        ctx.fillRect(this.x, this.y, this.blockSize, this.blockSize)  
     }
 }
+
