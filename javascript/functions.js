@@ -34,3 +34,14 @@ function titleAppear(){
       ctx.textBaseline = 'bottom'
       ctx.fillText("ColorBattle", 20, 200); 
   }
+
+  function update(){
+    player1.draw()
+    player2.draw()
+  }
+
+  function startGame() {
+    if (interval) return
+    interval = setInterval(update, 1000/120)
+  }
+;
