@@ -1,12 +1,14 @@
-    mapLarge.drawBasic()
+fillerLoop()
+window.onload = titleAppear
 
-mapLarge.basicMap()
 
 
 
 addEventListener('keydown', (e) => {
     e.preventDefault()
     if(e.keyCode === 32) {
+    ctx.clearRect(0,0, canvas.width, canvas.height)
+    mapLarge.drawBasic()
      startGame()
    } else if(e.keyCode === 38) {
     player1.moveUp()

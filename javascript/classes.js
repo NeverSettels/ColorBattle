@@ -1,6 +1,20 @@
- window.on
 
- 
+ class Bomb {
+     constructor(map) {
+         this.map = map
+         this.img = new Image()
+         this.img.src = 'images/bomb.png'  
+         this.blockSize = canvas.width/this.map.numAccross
+         this.length = this.map.numAccross 
+         this.x = (Math.floor(Math.random()*(this.length) ))*this.blockSize
+         this.y = (Math.floor(Math.random()*(this.length) ))*this.blockSize
+     }
+        draw() {            
+            ctx.drawImage(this.img , this.x, this.y, this.blockSize, this.blockSize)
+        }
+}
+
+
  
  class MapGenerator{
     constructor(x){
@@ -93,5 +107,16 @@ class PlayerBlock{
         ctx.fillStyle = this.color
         ctx.fillRect(this.x, this.y, this.blockSize, this.blockSize)  
     }
+    isTouching(bomb) {
+        return (
+          this.x < bomb.x + bomb.blockSize  &&
+          this.x + this.blockSize > bomb.x &&
+          this.y < bomb.y + bomb.blockSize  &&
+          this.y + this.blockSize > bomb.y
+        ) 
+      }
 }
+
+
+
 

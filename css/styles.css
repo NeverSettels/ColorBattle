@@ -2,22 +2,27 @@
     font-family: 'Press Start 2P';
     src: url('../PressStart2P-Regular.ttf');
 }
+body{
+    background: black;
+}
 div{
     width: 100vw;
     display: flex;
     justify-content: center;
     align-content: center;
-
+    background: black;
 }
 #canvas{
     border: none;
     font-family: 'Press Start 2P';
+    background: white;
 }
 .timer{    
     margin: 0;
     height: 60px;
     padding: 10px;
     font-size: 50px;
+    color: white;
     font-family: 'Press Start 2P';
 }
 
