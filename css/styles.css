@@ -1,29 +1,115 @@
 @font-face {
-    font-family: 'Press Start 2P';
-    src: url('../PressStart2P-Regular.ttf');
+  font-family: 'Press Start 2P';
+  src: url('../PressStart2P-Regular.ttf');
 }
-body{
-    background: black;
-}
-div{
-    width: 100vw;
-    display: flex;
-    justify-content: center;
-    align-content: center;
-    background: black;
-}
-#canvas{
-    border: none;
-    font-family: 'Press Start 2P';
-    background: white;
-}
-.timer{    
-    margin: 0;
-    height: 60px;
-    padding: 10px;
-    font-size: 50px;
-    color: white;
-    font-family: 'Press Start 2P';
+body {
+  padding: 0;
+  margin: 0;
+  background: black;
 }
 
- 
+#canvas {
+  border: none;
+  font-family: 'Press Start 2P';
+  background: white;
+}
+
+.timer {
+  display: flex;
+  width: 100vw;
+  height: 100px;
+  font-family: 'Press Start 2P';
+  font-size: 50px;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+#sec {
+  text-align: center;
+  width: 50%;
+  height: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  width: 100vw;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  flex-flow: column;
+  width: 33vw;
+}
+.left {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  color: white;
+  font-family: 'Press Start 2P';
+  width: 33vw;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  color: white;
+  font-family: 'Press Start 2P';
+  width: 33vw;
+}
+.player {
+  height: 20px;
+  width: 150px;
+}
+
+button {
+  font-family: 'Press Start 2P';
+  color: white;
+  margin-top: 10px;
+  height: 50px;
+  width: 100px;
+}
+#blue {
+  background: #1e90ff;
+}
+#green {
+  background: #228b22;
+}
+.random {
+  background: gray;
+}
+
+#red {
+  background: #dc143c;
+}
+#orange {
+  background: #ff8c00;
+}
+#purple {
+  background: #9932cc;
+}
+#yellow {
+  background: #ffd700;
+}
+.yourColor {
+  text-align: center;
+  margin-top: 10px;
+  height: 20px;
+  width: 150px;
+}
+#p1color {
+  margin-top: 20px;
+  height: 50px;
+  width: 50px;
+}
+#p2color {
+  margin-top: 20px;
+  height: 50px;
+  width: 50px;
+}

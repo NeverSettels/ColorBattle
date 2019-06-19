@@ -1,22 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Canvas Practice</title>
-    <link rel="stylesheet" href="./css/styles.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
-</head>
-<body>
-    <div class=timer style="font-family: 'Press Start 2P'"><span id="sec">Color Battle</span>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ColorBattle</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="timer"><span id="sec">Color Battle</span></div>
+    <div class="container">
+      <div class="left">
+        <span class="player"> Player 1</span>
+        <img src="./images/arrow_keys.png" alt="" />
+        <button id="blue">Blue</button>
+        <button id="purple">Purple</button>
+        <button id="green">Green</button>
+        <button class="random" id="rand1">Random</button>
+        <span class="yourColor">Your color:</span>
+        <div id="p1color"></div>
+      </div>
+      <div class="center">
+        <div>
+          <canvas id="canvas" width="400" height="400" style="font-family: 'Press Start 2P'"></canvas>
+        </div>
+      </div>
+      <div class="right">
+        <span class="player"> Player 2</span>
+        <img src="./images/WASD_keys.png" alt="" />
+        <button id="red">Red</button>
+        <button id="orange">Orange</button>
+        <button id="yellow">Yellow</button>
+        <button class="random" id="rand2">Random</button>
+        <span class="yourColor">Your color:</span>
+        <div id="p2color"></div>
+      </div>
     </div>
-    <div>
-    <canvas id="canvas" width="400" height="400" style="font-family: 'Press Start 2P'"></canvas>
-    </div>
-
-</body>
-    <script src="./javascript/classes.js"></script>
-    <script src= "./javascript/variables.js"></script>
-    <script src="./javascript/execute.js"></script>
+  </body>
+  <script src="./javascript/classes.js"></script>
+  <script src="./javascript/variables.js"></script>
+  <script src="./javascript/execute.js"></script>
 </html>
