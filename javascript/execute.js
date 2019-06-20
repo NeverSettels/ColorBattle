@@ -30,6 +30,8 @@ addEventListener('keyup', e => {
         player2.moveleft()
       } else if (e.keyCode === 82) {
         window.location.reload()
+        titleMusic.play()
+        titleMusic.loop = true
       }
     }
   }
@@ -96,5 +98,6 @@ mute.onclick = e => {
 addEventListener('keydown', e => {
   if (e.keyCode === 80) {
     titleMusic.play()
+    titleMusic.loop = true
   }
 })

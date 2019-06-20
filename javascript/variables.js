@@ -43,16 +43,17 @@ const mapLarge = new MapGenerator(10)
 
 mapLarge.basicMap()
 let bomb = new Bomb(mapLarge)
-let player1 = new PlayerBlock(randColorP1, 0, 0, 0, 0, mapLarge, `p1`, 'images/player1.png')
-let player2 = new PlayerBlock(
-  randColorP2,
-  canvas.width - player1.blockSize,
-  canvas.height - player1.blockSize,
+let player2 = new PlayerBlock(randColorP2, 0, 0, 0, 0, mapLarge, `p2`, 'images/player2.png')
+
+let player1 = new PlayerBlock(
+  randColorP1,
+  canvas.width - player2.blockSize,
+  canvas.height - player2.blockSize,
   9,
   9,
   mapLarge,
-  `p2`,
-  'images/player2.png'
+  `p1`,
+  'images/player1.png'
 )
 
 function getRandomColor() {
