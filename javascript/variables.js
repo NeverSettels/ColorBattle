@@ -11,25 +11,40 @@ let yellow = document.querySelector(`#yellow`)
 let rand2 = document.querySelector(`#rand2`)
 let p1Color = document.querySelector('#p1color')
 let p2Color = document.querySelector('#p2color')
+let large = document.querySelector('#mapLarge')
+let med = document.querySelector('#mapMid')
+let small = document.querySelector('#mapSmall')
+let mapText = document.querySelector('#mapSelector')
+let mute = document.querySelector('.mute')
+let unmute = document.querySelector('.unmute')
+let player1Score = document.querySelector('#player1Score')
+let player2Score = document.querySelector('#player2Score')
 let randColorP1 = getRandomColor()
 let randColorP2 = getRandomColor()
 let battle = new Audio()
 battle.src = 'http://23.237.126.42/ost/bang-bang-busters-arcade/fejcqoyf/08_Boss%20Theme%201.mp3'
+battle.volume = 0.5
 let finish = new Audio()
 finish.src = 'http://23.237.126.42/ost/dragoon-might-arcade/ycrwiwze/05_New%20Beginning%20%28Intermission%29.mp3'
+finish.volume = 0.5
 let titleMusic = new Audio()
 titleMusic.src = 'http://23.237.126.42/ost/rapid-hero-arcade/lggalrpk/03_Waiting%20for%20Start.mp3'
+titleMusic.volume = 0.5
+let conan = new Audio()
+conan.src = 'conan.mp3'
 
+let hasPlayer1selectedColor = false
+let hasPlayer2selectedColor = false
+let hasGameStarted = false
 let interval
 let frames = 0
 let playBack = 1
-
 const mapLarge = new MapGenerator(10)
 
 mapLarge.basicMap()
-const bomb = new Bomb(mapLarge)
-const player1 = new PlayerBlock(randColorP1, 0, 0, 0, 0, mapLarge, `p1`, 'images/player1.png')
-const player2 = new PlayerBlock(
+let bomb = new Bomb(mapLarge)
+let player1 = new PlayerBlock(randColorP1, 0, 0, 0, 0, mapLarge, `p1`, 'images/player1.png')
+let player2 = new PlayerBlock(
   randColorP2,
   canvas.width - player1.blockSize,
   canvas.height - player1.blockSize,
@@ -66,7 +81,6 @@ function fillerLoop() {
   }, 1)
 }
 function titleAppear() {
-  titleMusic.play()
   ctx.globalCompositeOperation = 'destination-over'
   ctx.fillStyle = 'white'
   ctx.font = "30px 'Press Start 2P'"
@@ -81,15 +95,16 @@ function update() {
   player1.draw()
   player2.draw()
   printSeconds()
+  printScores()
   battle.playbackRate = `${(playBack += 0.0005)}`
 }
 
 function startGame() {
+  hasGameStarted = true
   titleMusic.pause()
   console.log(mapLarge.arrOutter)
   bomb.draw()
   ctx.globalCompositeOperation = 'source-over'
-  mapLarge.drawBasic()
   if (interval) return
   interval = setInterval(update, 1000 / 120)
   battle.play()
@@ -99,6 +114,7 @@ function startGame() {
 function gameOver() {
   battle.pause()
   finish.play()
+  easterEgg(score1(mapLarge.arrOutter), score1(mapLarge.arrOutter))
   clearInterval(interval)
   interval = false
   determineWinner(mapLarge.arrOutter)
@@ -109,7 +125,24 @@ function gameOver() {
   sec.style = 'font-size: 30px'
   sec.innerText = 'Press "R" to play again'
 }
-
+function score1(arr) {
+  let p1S = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i][j] === `p1`) p1S++
+    }
+  }
+  return p1S
+}
+function score2(arr) {
+  let p2S = 0
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = 0; j < arr.length; j++) {
+      if (arr[i][j] === `p2`) p2S++
+    }
+  }
+  return p2S
+}
 function determineWinner(arr) {
   let p1Score = 0
   let p2Score = 0
@@ -126,8 +159,13 @@ function determineWinner(arr) {
   } else {
     return `It's a Tie!!!!!!`
   }
+  console.log(p1Score)
+  console.log(p2Score)
 }
-
+function printScores() {
+  player1Score.textContent = `Score: ${score1(mapLarge.arrOutter)}`
+  player2Score.textContent = `Score: ${score2(mapLarge.arrOutter)}`
+}
 function printSeconds() {
   sec.innerText = 15 - Math.floor(getSeconds())
 }
@@ -189,5 +227,12 @@ function checkCollition() {
       player2.blockSize * 3
     )
     bomb.draw()
+  }
+}
+function easterEgg(num1, num2) {
+  if (num1 > 60 || num2 > 60) {
+    finish.pause()
+    conan.play()
+    conan.volume = 1
   }
 }

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="css/styles.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>ColorBattle</title>
-    <link rel="stylesheet" href="css/styles.css" />
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet" />
   </head>
   <body>
@@ -13,6 +13,7 @@
     <div class="container">
       <div class="left">
         <span class="player"> Player 1</span>
+        <span id="player1Score" class="player">Score: 0</span>
         <img src="./images/arrow_keys.png" alt="" />
         <button id="blue">Blue</button>
         <button id="purple">Purple</button>
@@ -25,9 +26,11 @@
         <div>
           <canvas id="canvas" width="400" height="400" style="font-family: 'Press Start 2P'"></canvas>
         </div>
+        <button class="random mute unmute"><img src="./images/speaker.png" alt="" /></button>
       </div>
       <div class="right">
         <span class="player"> Player 2</span>
+        <span id="player2Score" class="player">Score: 0</span>
         <img src="./images/WASD_keys.png" alt="" />
         <button id="red">Red</button>
         <button id="orange">Orange</button>
@@ -36,6 +39,9 @@
         <span class="yourColor">Your color:</span>
         <div id="p2color"></div>
       </div>
+    </div>
+    <div class="instructions">
+      <p>Color more blocks than your opponent. Simply select your color and press 'SPACE' to begin.</p>
     </div>
   </body>
   <script src="./javascript/classes.js"></script>

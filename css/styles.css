@@ -42,7 +42,7 @@ body {
 
 .center {
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-flow: column;
   width: 33vw;
 }
@@ -112,4 +112,41 @@ button {
   margin-top: 20px;
   height: 50px;
   width: 50px;
+}
+.mapButtons {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+#mapSelector {
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Press Start 2P';
+  color: white;
+  height: 20px;
+  width: 150px;
+}
+.mapButton {
+  background: #708090;
+}
+.instructions {
+  display: flex;
+  width: 100vw;
+  height: 90px;
+  color: white;
+  font-family: 'Press Start 2P';
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+p {
+  text-align: center;
+  width: 70%;
+  height: 80%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 0;
+  margin-bottom: 0;
 }
