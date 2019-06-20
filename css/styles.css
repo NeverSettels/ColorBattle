@@ -5,11 +5,13 @@
 body {
   padding: 0;
   margin: 0;
-  background: black;
+  background-image: url('https://thumbs.gfycat.com/FarflungFancyBrahmancow-size_restricted.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #canvas {
-  border: none;
+  border: 2px solid white;
   font-family: 'Press Start 2P';
   background: white;
 }
