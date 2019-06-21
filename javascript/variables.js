@@ -105,7 +105,8 @@ function startGame() {
   titleMusic.pause()
   bomb.draw()
   ctx.globalCompositeOperation = 'source-over'
-   
+  if (interval) return
+  interval = setInterval(update, 1000 / 120)
   battle.play()
   setTimeout(gameOver, 15000)
 }
