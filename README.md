@@ -16,7 +16,7 @@ give Player 2 all the mobility a 2 dimiensional block could wish for.
 
 ## Features
 
-- Pick Your own Colors wether it is from the pre-selected range or completely up to fate.
+- Pick Your own Colors whether it is from the pre-selected range or completely up to fate.
 
 - Mute button so that your 1000th game doesn't drive you nuts
 
