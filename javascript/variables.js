@@ -103,7 +103,6 @@ function update() {
 function startGame() {
   hasGameStarted = true
   titleMusic.pause()
-  console.log(mapLarge.arrOutter)
   bomb.draw()
   ctx.globalCompositeOperation = 'source-over'
   if (interval) return
